@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>软件测试-mocha入门 | Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Young">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.4.0',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/css/main.min.css">
+  
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/js/jquery.jside.menu.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div class="single">
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/post_cover.min.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uy4jl27j60el0elgm002.jpg"></a></div>
+    <span>2021-01-09</span>
+    <h2>软件测试-mocha入门</h2>
+    <div class="tags"><i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a></div>
+    </div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h2 id="什么是TDD"><a href="#什么是TDD" class="headerlink" title="什么是TDD:"></a>什么是TDD:</h2><blockquote>
+<p>TDD：Test driven devlement，测试驱动开发，是敏捷开发中的一项核心实践和技术，也是一种设计方法论。</p>
+<p>TDD的原理是在开发功能代码之前，先编写单元测试用例代码，测试代码确定需要编写什么产品代码。</p>
+</blockquote>
+<h2 id="什么是mocha"><a href="#什么是mocha" class="headerlink" title="什么是mocha:"></a>什么是mocha:</h2><blockquote>
+<p>mocha是JavaScript的一种单元测试框架，既可以在浏览器环境下运行，也可以在Node.js环境下运行。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="安装mocha："><a href="#安装mocha：" class="headerlink" title="安装mocha："></a>安装mocha：</h2><p>1.创建一个工程。</p>
+<p>2.运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">初始化</span></span><br><span class="line">npm init</span><br><span class="line"><span class="meta">#</span><span class="bash">安装mocha</span></span><br><span class="line">npm i mocha chai -D</span><br></pre></td></tr></table></figure>
+
+<p>此时目录结构为：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5wa66dpvj608e0gl0sw02.jpg"></p>
+<h2 id="编写业务代码："><a href="#编写业务代码：" class="headerlink" title="编写业务代码："></a>编写业务代码：</h2><p><strong>编写math.js用于模拟业务代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span> (<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x*y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    add,multiply </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编写测试代码："><a href="#编写测试代码：" class="headerlink" title="编写测试代码："></a>编写测试代码：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导入刚刚写的math.js</span></span><br><span class="line"><span class="keyword">var</span> math=<span class="built_in">require</span>(<span class="string">&quot;../math&quot;</span>);</span><br><span class="line"><span class="comment">//导入断言</span></span><br><span class="line"><span class="keyword">var</span> assert= <span class="built_in">require</span>(<span class="string">&quot;assert&quot;</span>);</span><br><span class="line"><span class="comment">// 描述测试文件</span></span><br><span class="line">describe(<span class="string">&#x27;测试math.js&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 描述测试的方法</span></span><br><span class="line">    describe(<span class="string">&#x27;测试方法add&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">// mocha提供了it方法，称为测试用例，表示一个单独的测试</span></span><br><span class="line">        <span class="comment">// 我们可以写某个方法的多个测试用例来测试不同情况下的状况</span></span><br><span class="line">        <span class="comment">// 测试10+1;</span></span><br><span class="line">        it(<span class="string">&#x27;10+1&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">// 断言10+1=11</span></span><br><span class="line">            assert.equal(math.add(<span class="number">10</span>,<span class="number">1</span>),<span class="number">11</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 测试不通过</span></span><br><span class="line">        <span class="comment">// 测试10+2；断言10+2=9</span></span><br><span class="line">        it(<span class="string">&quot;10+2&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            assert.equal(math.add(<span class="number">10</span>,<span class="number">2</span>),<span class="number">9</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">    describe(<span class="string">&quot;测试方法multiply&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 测试5*2</span></span><br><span class="line">        it(<span class="string">&#x27;5-2&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">// 断言5*2=10</span></span><br><span class="line">            assert.equal(math.multiply(<span class="number">5</span>,<span class="number">2</span>),<span class="number">10</span>);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置package-json："><a href="#配置package-json：" class="headerlink" title="配置package.json："></a>配置package.json：</h2><p><strong>直接使用mocha测试显示在终端</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;mocha&quot;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行测试："><a href="#运行测试：" class="headerlink" title="运行测试："></a>运行测试：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm test</span><br></pre></td></tr></table></figure>
+
+<h2 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5wacnn52j60gy0edjrt02.jpg"></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/footer-l.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2021/10/04/hello-world/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>Hello W...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/footer-r.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>没有更早的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2021.<a href="/">Blogs</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uy4jl27j60el0elgm002.jpg" alt="Young"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Young</p>
+          <span class="tagline">不以物喜，不以己悲</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    
+    
+    
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
