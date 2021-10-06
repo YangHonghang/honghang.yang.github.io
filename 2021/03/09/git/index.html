@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>git | Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Young">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.4.0',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/css/main.min.css">
+  
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/js/jquery.jside.menu.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div class="single">
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/post_cover.min.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uy4jl27j60el0elgm002.jpg"></a></div>
+    <span>2021-03-09</span>
+    <h2>git</h2>
+    <div class="tags"><i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/git/" rel="tag">git</a></div>
+    </div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <blockquote>
+<p>Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。也是Linus Torvalds为了帮助管理Linux内核开发而开发的一个开放源码的版本控制软件。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库:"></a>创建版本库:</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置账号密码"><a href="#配置账号密码" class="headerlink" title="配置账号密码:"></a>配置账号密码:</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">某个版本库</span></span><br><span class="line">git config user.name &#x27;xxx&#x27;;</span><br><span class="line">git config user.email &#x27;xxx&#x27;;</span><br><span class="line"><span class="meta">#</span><span class="bash">全局</span></span><br><span class="line">git config -global user.name &#x27;xxx&#x27;;</span><br><span class="line">git config -global user.email &#x27;xxx&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件:"></a>添加文件:</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;fileName&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看差异"><a href="#查看差异" class="headerlink" title="查看差异:"></a>查看差异:</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态:"></a>查看状态:</h2><p>查看哪些文件被更改</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看提交日志："><a href="#查看提交日志：" class="headerlink" title="查看提交日志："></a>查看提交日志：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">多行显示</span></span><br><span class="line">git log</span><br><span class="line"><span class="meta">#</span><span class="bash">单行显示</span></span><br><span class="line">git log --pretty=oneline</span><br></pre></td></tr></table></figure>
+
+<h2 id="版本回退："><a href="#版本回退：" class="headerlink" title="版本回退："></a>版本回退：</h2><h3 id="向前"><a href="#向前" class="headerlink" title="向前"></a>向前</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">HEAD^代表回退一个版本</span>  </span><br><span class="line"><span class="meta">#</span><span class="bash">HEAD^^代表回退两个版本</span></span><br><span class="line">git reset --hard HEAD^</span><br><span class="line"><span class="meta">#</span><span class="bash">HEAD~100 代表回退100个版本</span></span><br><span class="line">git reset --hard HEAD~100</span><br></pre></td></tr></table></figure>
+
+<h3 id="向后"><a href="#向后" class="headerlink" title="向后"></a>向后</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">5d644代表版本commitId</span></span><br><span class="line">git reset --hard 5d644</span><br></pre></td></tr></table></figure>
+
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h3><p>Git在内部有个指向当前版本的<code>HEAD</code>指针，当你回退版本的时候，Git仅仅是把HEAD从指向<code>append GPL</code></p>
+<p>所以你让<code>HEAD</code>指向哪个版本号，你就把当前版本定位在哪。</p>
+<p><strong>回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的<code>commit id</code>怎么办？</strong></p>
+<h2 id="命令记录："><a href="#命令记录：" class="headerlink" title="命令记录："></a>命令记录：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看记录你的每一次</span></span><br><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+
+<h2 id="版本库-Repository-和暂存区-stage-："><a href="#版本库-Repository-和暂存区-stage-：" class="headerlink" title="版本库(Repository)和暂存区(stage)："></a>版本库(Repository)和暂存区(stage)：</h2><p>工作区有一个隐藏目录<code>.git</code>，这个不算工作区，而是Git的版本库。</p>
+<p>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支<code>master</code>，以及指向<code>master</code>的一个指针叫<code>HEAD</code>。</p>
+<p><code>git add</code>命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行<code>git commit</code>就可以一次性把暂存区的所有修改提交到分支。</p>
+<p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的</p>
+<p>可以使用<code>git stat：us</code>查看</p>
+<h2 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h2><p>Git跟踪并管理的是修改，而非文件。新增了一行，这就是一个修改，删除了一行，也是一个修改，更改了某些字符，也是一个修改，删了一些又加了一些，也是一个修改，甚至创建一个新文件，也算一个修改。</p>
+<p>第一次修改 -&gt; <code>git add</code> -&gt; 第二次修改 -&gt; <code>git commit</code></p>
+<p>Git管理的是修改，当你用<code>git add</code>命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，<code>git commit</code>只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。</p>
+<h3 id="查看工作区和版本库里面最新版本的区别："><a href="#查看工作区和版本库里面最新版本的区别：" class="headerlink" title="查看工作区和版本库里面最新版本的区别："></a>查看工作区和版本库里面最新版本的区别：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD -- test.txt</span><br></pre></td></tr></table></figure>
+
+<p>理解了Git是如何跟踪修改的，每次修改，如果不用<code>git add</code>到暂存区，那就不会加入到<code>commit</code>中。</p>
+<h2 id="撤销修改："><a href="#撤销修改：" class="headerlink" title="撤销修改："></a>撤销修改：</h2><p>git checkout的意思就是，把<code>文件</code>文件在工作区的修改全部撤销。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- 文件名</span><br></pre></td></tr></table></figure>
+
+<p>这里有两种情况：</p>
+<p>一种是<code>文件</code>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+<p>一种是<code>文件</code>已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+<p>就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</p>
+<h3 id="撤销暂存区："><a href="#撤销暂存区：" class="headerlink" title="撤销暂存区："></a>撤销暂存区：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD 文件名</span><br></pre></td></tr></table></figure>
+
+<p><code>git reset</code>命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用<code>HEAD</code>时，表示最新的版本。</p>
+<p>此时文件已经从暂存区撤销了，但是在工作区有修改。再使用<code>git checkout --文件名</code>撤销掉工作区的修改。</p>
+<h2 id="删除文件："><a href="#删除文件：" class="headerlink" title="删除文件："></a>删除文件：</h2><p>Git中，删除也是一个修改操作。一般情况下，通常直接在文件管理器中把没用的文件删了，或者用<code>rm</code>命令删了，这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，<code>git status</code>命令会立刻告诉你哪些文件被删除了。</p>
+<p>在有两个选择，一是确实要从版本库中删除该文件，那就用命令<code>git rm</code>删掉，并且<code>git commit</code>；</p>
+<p>如果commit之后发现误删了。那么可以使用<code>git reset --hard HEAD^</code>回退一个版本。</p>
+<p>如果删除之后发现误删了，那可以直接使用<code>git checkout 文件名</code>撤销。</p>
+<p>从来没有被添加到版本库就被删除的文件，是无法恢复的！</p>
+<h2 id="远程仓库："><a href="#远程仓库：" class="headerlink" title="远程仓库："></a>远程仓库：</h2><p>创建SSH Key:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -C <span class="string">&quot;邮箱@email.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>添加SSH key到git服务器。将id_rsa_pub的内容粘贴到git服务器的sshkey里面</p>
+<h3 id="添加远程仓库："><a href="#添加远程仓库：" class="headerlink" title="添加远程仓库："></a>添加远程仓库：</h3><p>将本地的仓库关联至远程仓库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git remote add origin 地址</span>	</span><br></pre></td></tr></table></figure>
+
+<p>远程库的名字默认是<code>origin</code>；</p>
+<p>推送：</p>
+<p>把本地库的内容推送到远程，用<code>git push</code>命令，实际上是把当前分支<code>master</code>推送到远程。</p>
+<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin 远程分支名称</span><br></pre></td></tr></table></figure>
+
+<p>只要本地作了提交，就可以通过命令;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>把本地<code>master</code>分支的最新修改推送至git服务器；</p>
+<h3 id="从远程仓库克隆："><a href="#从远程仓库克隆：" class="headerlink" title="从远程仓库克隆："></a>从远程仓库克隆：</h3><p>用命令<code>git clone</code>克隆一个本地库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone 地址</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支管理："><a href="#分支管理：" class="headerlink" title="分支管理："></a>分支管理：</h2><p><strong>分支管理的实际作用：</strong></p>
+<p>假设准备开发一个新功能，但是需要两周才能完成，第一周写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。</p>
+<p>Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。</p>
+<p><strong>每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即<code>master</code>分支。<code>HEAD</code>严格来说不是指向提交，而是指向<code>master</code>，<code>master</code>才是指向提交的，所以，<code>HEAD</code>指向的就是当前分支。</strong></p>
+<p>一开始的时候，<code>master</code>分支是一条线，Git用<code>master</code>指向最新的提交，再用<code>HEAD</code>指向<code>master</code>，就能确定当前分支，以及当前分支的提交点；</p>
+<p>每次提交，<code>master</code>分支都会向前移动一步，这样，随着你不断提交，<code>master</code>分支的线也越来越长。</p>
+<p>当我们创建新的分支，例如<code>dev</code>时，Git新建了一个指针叫<code>dev</code>，指向<code>master</code>相同的提交，再把<code>HEAD</code>指向<code>dev</code>，就表示当前分支在<code>dev</code>上。</p>
+<p>Git创建一个分支很快，因为除了增加一个<code>dev</code>指针，改改<code>HEAD</code>的指向，工作区的文件都没有任何变化！</p>
+<p>切换分支后，对工作区的修改和提交就是针对<code>dev</code>分支了，比如新提交一次后，<code>dev</code>指针往前移动一步，而<code>master</code>指针不变。</p>
+<p>如我们在<code>dev</code>上的工作完成了，就可以把<code>dev</code>合并到<code>master</code>上。Git怎么合并呢？最简单的方法，就是直接把<code>master</code>指向<code>dev</code>的当前提交，就完成了合并。所以Git合并分支也很快！就改改指针，工作区内容也不变！合并完分支后，甚至可以删除<code>dev</code>分支。删除<code>dev</code>分支就是把<code>dev</code>指针给删掉，删掉后，我们就剩下了一条<code>master</code>分支：</p>
+<h3 id="创建分支："><a href="#创建分支：" class="headerlink" title="创建分支："></a>创建分支：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure>
+
+<p><code>git checkout</code>命令加上<code>-b</code>参数表示创建并切换，相当于以下两条命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev</span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
+
+<p>查看当前分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<p><code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号。然后，我们就可以在<code>dev</code>分支上正常提交。</p>
+<h3 id="切换回主分支："><a href="#切换回主分支：" class="headerlink" title="切换回主分支："></a>切换回主分支：</h3><p>任务完成后切换回主分支。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支合并到master上："><a href="#分支合并到master上：" class="headerlink" title="分支合并到master上："></a>分支合并到<code>master</code>上：</h3><p><code>git merge</code>命令用于合并指定分支到当前分支。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
+
+<p>合并完成后，就可以放心地删除<code>dev</code>分支了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch:"></a>switch:</h3><p>切换分支使用<code>git checkout &lt;branch&gt;</code>，而前面讲过的撤销修改则是<code>git checkout -- &lt;file&gt;</code>，同一个命令，实际上，切换分支这个动作，用<code>switch</code>更科学。因此，最新版本的Git提供了新的<code>git switch</code>命令来切换分支。</p>
+<p>创建并切换到新的<code>dev</code>分支，可以使用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c dev</span><br></pre></td></tr></table></figure>
+
+<p>直接切换到已有的<code>master</code>分支，可以使用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch master</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>git switch</code>命令，比<code>git checkout</code>要更容易理解。</p>
+<p><strong>Git鼓励大量使用分支：</strong></p>
+<p>查看分支：<code>git branch</code></p>
+<p>创建分支：<code>git branch &lt;name&gt;</code></p>
+<p>切换分支：<code>git checkout &lt;name&gt;</code>或者<code>git switch &lt;name&gt;</code></p>
+<p>创建+切换分支：<code>git checkout -b &lt;name&gt;</code>或者<code>git switch -c &lt;name&gt;</code></p>
+<p>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></p>
+<p>删除分支：<code>git branch -d &lt;name&gt;</code></p>
+<h3 id="解决冲突："><a href="#解决冲突：" class="headerlink" title="解决冲突："></a>解决冲突：</h3><p>Git如果文件存在冲突，必须手动解决冲突后再提交。<code>git status</code>也可以告诉我们冲突的文件；</p>
+<p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容。</p>
+<p>带参数的<code>git log</code>也可以看到分支的合并情况：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支管理策略："><a href="#分支管理策略：" class="headerlink" title="分支管理策略："></a>分支管理策略：</h3><p>合并分支时，如果可能，Git会用<code>Fast forward</code>模式，但这种模式下，删除分支后，会丢掉分支信息。如果要强制禁用<code>Fast forward</code>模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-f -m&#x27;消息&#x27; 分支名</span><br></pre></td></tr></table></figure>
+
+<p>使用git log –graph可以查看分支状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --pretty=oneline</span><br></pre></td></tr></table></figure>
+
+<h4 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略:"></a>分支策略:</h4><p><code>master</code>分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；干活都在<code>dev</code>分支上，也就是说，<code>dev</code>分支是不稳定的，到某个时候，比如1.0版本发布时，再把<code>dev</code>分支合并到<code>master</code>上，在<code>master</code>分支发布1.0版本；</p>
+<h3 id="BUG分支："><a href="#BUG分支：" class="headerlink" title="BUG分支："></a>BUG分支：</h3><p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
+<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支<code>issue-101</code>来修复它，但是,当前正在<code>dev</code>上进行的工作还没有提交，而工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复bug，但是工作区有东西不能切换分支。</p>
+<p>为此Git提供了一个<code>stash</code>功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+
+<p>储藏之后就可以切回主分支，新建一个bug分支来解决bug了，解决完之后，接着到主分支就要回来接着干活了。</p>
+<p>使用<code>git status</code>查看，发现工作区是干净的。那么刚刚的修改去哪了呢。</p>
+<p>用<code>git stash list</code>命令查看；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+
+<p>工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<ul>
+<li><p>一是用<code>git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用<code>git stash drop</code>来删除；</p>
+</li>
+<li><p>另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了；</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git stash pop</span></span><br></pre></td></tr></table></figure>
+
+<p>命令之后，使用<code>git status</code> 发现工作区的东西就回来了。</p>
+<p>再用<code>git stash list</code>查看。发现已经没有了。</p>
+<p>在master分支上修复了bug后，dev分支是早期从master分支分出来的，所以，这个bug其实在当前dev分支上也存在。那怎么在dev分支上修复同样的bug？</p>
+<p>同样的bug，要在dev上修复，我们只需要把<code>修改bug</code>这个提交所做的修改“复制”到dev分支。注意：我们只想复制<code>修改bug</code>这个提交所做的修改，并不是把整个master分支merge过来。</p>
+<p>为了方便操作，Git专门提供了一个<code>cherry-pick</code>命令，让我们能复制一个特定的提交到当前分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick commit的id</span><br></pre></td></tr></table></figure>
+
+<p>Git自动给dev分支做了一次提交，注意这次提交的commit是<code>修改bug</code>，它并不同于master的<code>修改bug</code>，因为这两个commit只是改动相同，但确实是两个不同的commit。用<code>git cherry-pick</code>，我们就不需要在dev分支上手动再把修bug的过程重复一遍。</p>
+<p>既然可以在master分支上修复bug后，在dev分支上可以“重放”这个修复过程，那么直接在dev分支上修复bug，然后在master分支上“重放”行不行？当然可以，不过你仍然需要<code>git stash</code>命令保存现场，才能从dev分支切换到master分支。</p>
+<h3 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支:"></a>Feature分支:</h3><p>软件开发中，总有无穷无尽的新的功能要不断添加进来。</p>
+<p>添加一个新功能时，肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
+<p>模拟流程：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git switch -c feature</span><br><span class="line"><span class="meta">#</span><span class="bash">开发代码</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">切回dev，准备合并：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git switch dev</span></span><br></pre></td></tr></table></figure>
+
+<p>正常情况下，feature分支和bug分支是类似的，合并，然后删除。但是需求更改新功能必须取消！虽然白干了，但是这个包含机密资料的分支还是必须就地销毁；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git branch -d feature</span></span><br></pre></td></tr></table></figure>
+
+<p>销毁失败。Git提醒，<code>feature-vulcan</code>分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用大写的<code>-D</code>参数。如果要丢弃一个没有被合并过的分支，可以通过<code>git branch -D &lt;name&gt;</code>强行删除。</p>
+<h3 id="多人协作："><a href="#多人协作：" class="headerlink" title="多人协作："></a>多人协作：</h3><p>从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code>。</p>
+<p>要查看远程库的信息，用<code>git remote</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote</span><br></pre></td></tr></table></figure>
+
+<p>用<code>git remote -v</code>显示更详细的信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h4 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支:"></a>推送分支:</h4><p>推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>如果要推送其他分支，比如<code>dev</code>，就改成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push orgin dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支:"></a>抓取分支:</h4><p>多人协作时，大家都会往<code>master</code>和<code>dev</code>分支上推送各自的修改。</p>
+<p>当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的<code>master</code>分支。可以使用<code>git branch</code>查看，现在，你的小伙伴要在<code>dev</code>分支上开发，就必须创建远程<code>origin</code>的<code>dev</code>分支到本地。可以用这个命令拉取远程dev并且创建本地<code>dev</code>分支。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev origin/dev</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以在<code>dev</code>上继续修改，然后，时不时地把<code>dev</code>分支<code>push</code>到远程；</p>
+<p>多人协作的工作模式通常是这样：</p>
+<ul>
+<li>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</li>
+<li>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</li>
+<li>如果合并有冲突，则解决冲突，并在本地提交；</li>
+<li>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！</li>
+</ul>
+<p>如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<ul>
+<li>查看远程库信息，使用<code>git remote -v</code>；</li>
+<li>本地新建的分支如果不推送到远程，对其他人就是不可见的；</li>
+<li>从本地推送分支，使用<code>git push origin branch-name</code>，如果推送失败，先用<code>git pull</code>抓取远程的新提交；</li>
+<li>在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；</li>
+<li>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</li>
+<li>从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</li>
+</ul>
+<h3 id="错误："><a href="#错误：" class="headerlink" title="错误："></a>错误：</h3><p>如我在Github新建一个仓库，写了License，然后把本地一个写了很久仓库上传。这时会发现 github 的仓库和本地的没有一个共同的 commit 所以 git 不让提交，认为是写错了 <code>origin</code> ，如果开发者确定是这个 <code>origin</code> 就可以使用 <code>--allow-unrelated-histories</code> 告诉 git 自己确定</p>
+<p>遇到无法提交的问题，一般先pull 也就是使用 <code>git pull origin master</code> 这里的 <code>origin</code> 就是仓库，而 <code>master</code> 就是需要上传的分支，因为两个仓库不同，发现 git 输出 <code>refusing to merge unrelated histories</code> 无法 pull 内容</p>
+<p>因为他们是两个不同的项目，要把两个不同的项目合并，git需要添加一句代码，在 <code>git pull</code> 之后，这句代码是在git 2.9.2版本发生的，最新的版本需要添加 <code>--allow-unrelated-histories</code> 告诉 git 允许不相关历史合并</p>
+<p>假如我们的源是origin，分支是master，那么我们需要这样写<code>git pull origin master --allow-unrelated-histories</code> 如果有设置了默认上传分支就可以用下面代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+<p>这个方法只解决因为两个仓库有不同的开始点，也就是两个仓库没有共同的 commit 出现的无法提交。如果使用本文的方法还无法提交，需要看一下是不是发生了冲突，解决冲突再提交</p>
+<h3 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase:"></a>Rebase:</h3><p>人在同一个分支上协作时，很容易出现冲突。即使没有冲突，后push的童鞋不得不先pull，在本地合并，然后才能push成功。</p>
+<p><strong>查看日志：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --pretty=oneline</span><br></pre></td></tr></table></figure>
+
+<p>日志看上去很乱，有强迫症的童鞋会问：为什么Git的提交历史不能是一条干净的直线？</p>
+<p>Git有一种称为rebase的操作，当本地比远程快，并且远程已经有过提交了。我们推送时会报错，需要我们拉取之后提交，这样的话分叉就会变得很多。提交历史分叉了。</p>
+<ul>
+<li>拉取远程commit<ul>
+<li>本地commit1</li>
+<li>本地commit2</li>
+</ul>
+</li>
+<li>之前的远程commit</li>
+<li>最初</li>
+</ul>
+<p>这个时候，<code>git rebase</code>就派上了用场。原本分叉的提交现在变成一条直线了。</p>
+<ul>
+<li>本地commit1</li>
+<li>本地commit2</li>
+<li>拉取远程commit</li>
+<li>之前的远程commit</li>
+<li>最初</li>
+</ul>
+<p><strong>原理是:</strong></p>
+<p>Git把我们本地的提交“挪动”了位置，放到了<code>远程commit</code>之后，这样，整个提交历史就成了一条直线。rebase操作前后，最终的提交内容是一致的，但是，我们本地的commit修改内容已经变化了，它们的修改不再基于<code>最初</code>，而是基于<code>远程commit</code>，但最后的提交内容是一致的。</p>
+<p>这就是rebase操作的特点：把分叉的提交历史“整理”成一条直线，看上去更直观。缺点是本地的分叉提交已经被修改过了。</p>
+<h2 id="标签："><a href="#标签：" class="headerlink" title="标签："></a>标签：</h2><p>Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。</p>
+<p>Git有commit，为什么还要引入tag？</p>
+<p>commitId不容易记。</p>
+<p>在Git中打标签非常简单，首先，切换到需要打标签的分支上；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag v1.0</span><br></pre></td></tr></table></figure>
+
+<p>对指定提交打标签，敲入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git tag tagName commitId</span></span><br></pre></td></tr></table></figure>
+
+<p>标签不是按时间顺序列出，而是按字母排序的。</p>
+<p>可以用<code>git show &lt;tagname&gt;</code>查看标签信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show tagName</span><br></pre></td></tr></table></figure>
+
+<p>还可以创建带有说明的标签，用<code>-a</code>指定标签名，<code>-m</code>指定说明文字：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a v1.0 -m&#x27;我是v1.0的说明文字&#x27; commmitId</span><br></pre></td></tr></table></figure>
+
+<p>删除tag:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v1.0</span><br></pre></td></tr></table></figure>
+
+<p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。</p>
+<p>如果要推送某个标签到远程，使用命令<code>git push origin &lt;tagname&gt;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin v1.0</span><br></pre></td></tr></table></figure>
+
+<p>一次性推送全部尚未推送到远程的本地标签：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
+
+<p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v1.0</span><br></pre></td></tr></table></figure>
+
+<p>然后，从远程删除。删除命令也是push，但是格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/v1.0</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-31087949-id-5816994.html">http://blog.chinaunix.net/uid-31087949-id-5816994.html</a></p>
+<h2 id="Pull-amp-Push："><a href="#Pull-amp-Push：" class="headerlink" title="Pull&amp;Push："></a>Pull&amp;Push：</h2><h3 id="pull"><a href="#pull" class="headerlink" title="pull:"></a>pull:</h3><ul>
+<li><p>将远程指定分支<strong>拉取到</strong>本地指定分支上：</p>
+<ul>
+<li>```shell<br>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 将远程指定分支**拉取到**本地当前分支上：</span><br><span class="line"></span><br><span class="line">  * ```shell</span><br><span class="line">    git pull &lt;远程仓库名&gt; &lt;远程分支名称&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>将与本地当前分支同名的远程分支<strong>拉取到</strong>本地当前分支上</p>
+<ul>
+<li>```shell<br>git pull &lt;远程仓库名&gt;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在克隆远程项目的时候，本地分支会自动与远程分支建立追踪关系，可以使用默认的origin来替代远程仓库名，所以，常用的命令就是 git pull origin &lt;远程仓库名&gt;，操作简单，安全可控。</span><br><span class="line"></span><br><span class="line">### push :</span><br><span class="line"></span><br><span class="line">* 将本地当前分支 推送到 远程指定分支上（注意：pull是远程在前本地在后，push相反）</span><br><span class="line"></span><br><span class="line">  * ```shell</span><br><span class="line">    git push &lt;远程仓库名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>将本地当前分支 推送到 远程指定分支上</p>
+<ul>
+<li>```shell<br>git push &lt;远程仓库名&gt; &lt;远程分支名&gt;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 将本地当前分支 推送到 与本地当前分支同名的远程分支上</span><br><span class="line"></span><br><span class="line">  * ```shell</span><br><span class="line">    git push &lt;远程仓库名&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="Git提交规范："><a href="#Git提交规范：" class="headerlink" title="Git提交规范："></a>Git提交规范：</h2><ul>
+<li>feat：新功能</li>
+<li>fix：修复bug</li>
+<li>chore：对构件或者辅助工具的更改</li>
+<li>refactor：既不是修复bug也不是添加新功能的代码更改</li>
+<li>style：不影响代码含义的更改(例如空格、格式化、少了分号)</li>
+<li>docs：只是文档的更改</li>
+<li>revert：撤回提交</li>
+<li>test：添加活修正测试</li>
+</ul>
+<blockquote>
+<p>例： git commit -m”feat: add list”</p>
+</blockquote>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/footer-l.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2021/10/06/%E8%AE%A4%E8%AF%86Javascript/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>认识javas...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/footer-r.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2021/01/09/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95-mocha%E5%85%A5%E9%97%A8/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>软件测试-mo...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2021.<a href="/">Blogs</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uy4jl27j60el0elgm002.jpg" alt="Young"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Young</p>
+          <span class="tagline">不以物喜，不以己悲</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    
+    
+    
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
