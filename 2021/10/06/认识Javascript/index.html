@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>认识javascript | Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Young">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.4.0',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/css/main.min.css">
+  
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/js/jquery.jside.menu.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div class="single">
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/post_cover.min.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uy4jl27j60el0elgm002.jpg"></a></div>
+    <span>2021-10-06</span>
+    <h2>认识javascript</h2>
+    <div class="tags"><i class="fa fa-tag"></i><a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a></div>
+    </div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="V8是如何将执行一段Javascript代码的"><a href="#V8是如何将执行一段Javascript代码的" class="headerlink" title="V8是如何将执行一段Javascript代码的"></a>V8是如何将执行一段Javascript代码的</h1><h2 id="什么是V8："><a href="#什么是V8：" class="headerlink" title="什么是V8："></a>什么是V8：</h2><blockquote>
+<p>V8引擎是一个JavaScript引擎实现，最初由一些语言方面专家设计，后被谷歌收购，随后谷歌对其进行了开源。V8使用C++开发，，在运行JavaScript之前，相比其它的JavaScript的引擎转换成字节码或解释执行，V8将其编译成原生机器码（IA-32, x86-64, ARM, or MIPS CPUs），并且使用了如内联缓存（inline caching）等方法来提高性能。有了这些功能，JavaScript程序在V8引擎下的运行速度媲美二进制程序。V8支持众多操作系统，如windows、linux、android等，也支持其他硬件架构，如IA32,X64,ARM等，具有很好的可移植和跨平台特性。                    </p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="传统解释性语言执行方式："><a href="#传统解释性语言执行方式：" class="headerlink" title="传统解释性语言执行方式："></a>传统解释性语言执行方式：</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uh53xtcj610p07pjs502.jpg"></p>
+<h3 id="解释型语言特点："><a href="#解释型语言特点：" class="headerlink" title="解释型语言特点："></a>解释型语言特点：</h3><p>解释型语言由语言解析器解析为中间代码之后，由解释器解释执行，相对来说解释型语言启动快执行慢。</p>
+<h2 id="传统编译行语言执行方式："><a href="#传统编译行语言执行方式：" class="headerlink" title="传统编译行语言执行方式："></a>传统编译行语言执行方式：</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uhgnl08j60y309lq3i02.jpg"></p>
+<h3 id="编译型语言特点："><a href="#编译型语言特点：" class="headerlink" title="编译型语言特点："></a>编译型语言特点：</h3><p>编译型语言由解析器解析为中间代码之后，由编译器编译为机器代码执行，相对来说编译型语言启动慢执行快。</p>
+<blockquote>
+<p>浙江大学翁凯老师说”以编译型语言和解释型语言对编程语言做分类的方式是错误的。”<br>但是此处为了更明了还是采用了这种方式作比较，希望不要误导大家。</p>
+</blockquote>
+<h2 id="V8执行方式"><a href="#V8执行方式" class="headerlink" title="V8执行方式:"></a>V8执行方式:</h2><p><strong>混合编译执行JIT：</strong><br><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uhw90nxj60uh0fnjst02.jpg"><br>V8采用混合编译执行的方式执行代码，什么是混合方式执行呢，如图所示，输入一段代码之后，会先进入解析器，进行解析获取作用域与语法树，然后得到中间代码，由解释器开始执行，但是V8中有个监控模块，用于监控热点代码(经常会被执行的代码)，如循环之类，发现热点代码之后，会调用编译器将热点代码编译为机器码，当执行到热点代码之后，就会直接开始执行机器码，同时这种方式也带来另一个问题，JS是动态语言，可以在运行中修改结构，如果遇见这种代码，就会进行反优化操作，当执行到这，又会重新交由解释器去执行，所以在写JS代码的过程中，需要避免反优化。</p>
+<h3 id="减少反优化方式："><a href="#减少反优化方式：" class="headerlink" title="减少反优化方式："></a>减少反优化方式：</h3><p><strong>尽量在构造函数中声明对象属性：</strong> <br>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Class Point&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.x=x;</span><br><span class="line">    <span class="built_in">this</span>.y=y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1=<span class="keyword">new</span> Point(<span class="number">11</span>,<span class="number">22</span>);</span><br><span class="line"><span class="keyword">var</span> p2=<span class="keyword">new</span> Point(<span class="number">33</span>,<span class="number">44</span>);</span><br><span class="line"><span class="comment">//反例</span></span><br><span class="line">p1.z=<span class="number">55</span>;</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，p1.z并不是在构造函数内声明的属性，而是在Runtime 动态添加的，这种情况会触发生成一个隐藏类，就无法进行优化操作。<br>隐藏类概念：</p>
+<blockquote>
+<p>类似于匿名对象，虽然代码中没有显式声明这个类，但是编译器还是自己声明了一个，所谓的匿名/隐藏只是针对写/看代码的人的</p>
+</blockquote>
+<p><strong>尽量保持对象的稳定性</strong> <br> 例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj1=&#123;</span><br><span class="line">	<span class="attr">f1</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">obj.f2=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj2=&#123;</span><br><span class="line">  	<span class="attr">f2</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">obj.f1=<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>尽量保持对象的稳定性，跟例1差不多，尽量不要在Runtime去修改对象的结构跟属性。</p>
+<p><strong>多次调用某个函数时，尽量保持参数类型一致</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">add(<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>);</span><br><span class="line">add(<span class="literal">true</span>,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在调用函数时尽量保持参数的稳定性，因为JS并不是一个强类型的语言，在调用函数的时候可以给他传一个1，2也可以传”a”,”b”,是，它的内部都会进行一些隐式转换然后来参与运算，并不会报错，但是对于V8引擎而言，在代用一个函数时，不听改变他的结构的话，在整个的中间的过程中，有个概念叫内联缓存，当内联缓存的级别已经到达了一定层数以后，将不再去对这个函数做优化操作了。<br>内联缓存概念：</p>
+<blockquote>
+<p>内联缓存（Inline caching）是部分编程语言的运行时系统采用的优化技术，最早为Smalltalk开发。内联缓存的目标是通过记住以前直接在调用点上方法查询的结果来加快运行时方法绑定的速度。内联缓存对动态类型语言尤为有用，其中大多数（如非全部）方法绑定发生在运行时，因此虚方法表通常无法使用。<br>我们可以理解为javascript每一次的栈执行遇到调用外部函数、对象时候都产生地址缓存记录，下回执行到这个位置时候直接从缓存中取出对应记录，省去重新查找这一过程从加快程序执行速度。</p>
+</blockquote>
+<p>**<br>**<br><strong>不要在函数中声明类</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPoint</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">  	<span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">      <span class="function"><span class="title">constructor</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">        	<span class="built_in">this</span>.x=x;</span><br><span class="line">	        <span class="built_in">this</span>.y=y;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Point(x,y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在函数中声明类的话，可能会创建多个隐藏类，导致对象没办法进行优化的操作，当这个代码变为热点代码时，就没办法通过编译器将这个代码编译生成为二进制代码，进而触发反优化操作，直接回退到解释器里面来执行。</p>
+<h1 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h1><p><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/21586721/1621785821715-06dced3a-ed1d-4564-8859-042fefc4133e.jpeg"># V8的拆箱和装箱机制</p>
+<h2 id="什么是类型系统："><a href="#什么是类型系统：" class="headerlink" title="什么是类型系统："></a>什么是类型系统：</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uiscbonj60pl0e6dgd02.jpg"></p>
+<blockquote>
+<p>对于机器语言而言，所有数据都是一堆二进制代码，cpu处理这些数据的过程中并没有类型的概念，cpu所做的仅仅是去移动数据，对他们进行一些移位的操作，相加，或者是相乘，在高级语言里面我们都会为操作这些数据赋予一些指定的类型，类型可以确定一个值，或者说一组具有特定意义的数据，所以类型是高级语言的概念。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span>* name=<span class="string">&quot;yhh&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> couter=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> name=<span class="string">&quot;yhh&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>但是在JS中会发现我们不需要去指定这个变量的类型，我们只需要通过var,let,count去定义这个变量就可以了，这其实就是C/C++的编译器跟Javascript编译器在工作过程中的一些差异，C++的编译器会负责将我们写的源代码的数据片段转换成为CPU能正确处理的值，通常是一些二进制的机器代码，而JavaScript的引擎会根据数据自动去推导他们的类型，所以不需要我们手动去指定他们的类型，当然解释器也会去限定一些有害或者没有意义的操作。</p>
+<h2 id="对于V8来说字符串和数字想加有意义吗？"><a href="#对于V8来说字符串和数字想加有意义吗？" class="headerlink" title="对于V8来说字符串和数字想加有意义吗？"></a>对于V8来说字符串和数字想加有意义吗？</h2><p>V8会严格按照ECMA的规范来执行代码，在ECMA规范中对+的规定是，如果两个值想加，如果其中一个是字符串，那么我们就会把另外一个值也通过toString的方式转换为字符串，最终就会让两个字符串来进行相加；<br>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>+<span class="string">&quot;2&quot;</span></span><br><span class="line"><span class="comment">//12</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="装箱："><a href="#装箱：" class="headerlink" title="装箱："></a>装箱：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>toString();<span class="comment">//报错</span></span><br><span class="line"><span class="number">1</span> .toString();<span class="comment">//&quot;1&quot;</span></span><br><span class="line">(<span class="number">1</span>).toString();<span class="comment">//&quot;1&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>如例所示，有2个问题，为什么1会报错，而2、3明明是字面量却会输出”1”呢?</strong> <br>1：在JS中number字面量有4中表达类型，2进制、8进制、10进制、16进制，在为10进制的情况下，可以省略 <code>.</code> 左边的值,也可以省略 <code>.</code> 右边的值，但是不能同时省略，所以 <code>1.toString()</code> 就会把它当做一个number来解析，1.toString()肯定不是一个合法的number所以就会报语法错误。<br>2:（2、3）其实是一样的情况，每个基本数据类型都会有一个对应的类型，当一个字面量调用方法时，会自动进行装箱操作，相当于执行的是这段代码;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="number">1</span>).toString();<span class="comment">//&quot;1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>得到字符串1;</p>
+<h2 id="拆箱："><a href="#拆箱：" class="headerlink" title="拆箱："></a>拆箱：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]+[]<span class="comment">//&quot;&quot;[]+&#123;&#125;//&quot;[Object]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么这种方法不会报错呢，这是因为V8里面给我们提供的一个内置方法，通过这个内置方法就可以帮我们完成拆箱转换，当我们发现一个对象在参与运算的时候，我们会先去看对象中有没有存在一个 <code>valueOf()</code> 方法，如果存在的话我们首先会去调用这个对象的 <code>valueOf()</code> 方法，如果 <code>valueOf()</code> 返回的是一个原始值，那么就会直接用这个值参与运算，如果不是那就会去调用它的 <code>toString()</code> 方法，如果 <code>toString()</code> 方法会返回一个原始值，那就根据 <code>toString()</code> 方法的原始值来参与运算，如果调用 <code>toString()</code> 返回的不是一个原始值，那这时候就会报一个类型错误。<br>所以执行顺序如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]+[]<span class="comment">//转换为 [].valueOf()=[]; [].toString();=&quot;&quot;//等于&quot;&quot;+&quot;&quot;  //&quot;&quot;[]+&#123;&#125;//[]转换为 [].valueOf().toString() =&quot;&quot;//&#123;&#125;转换为 &#123;&#125;.valueOf()=&#123;&#125;;  &#123;&#125;.toString()=[object Object];//等于&quot;[object Object]&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="怎么实现对象实现继承："><a href="#怎么实现对象实现继承：" class="headerlink" title="怎么实现对象实现继承："></a>怎么实现对象实现继承：</h1><p>**什么是类: **<br>类是对相同事物和相似事物的综合。<br><strong>什么是属性</strong> <br>属性是对类的描述。<br><strong>对象特征:</strong> <br>对象具有唯一标志性，对象具有状态，对象具有行为，在Javascript中对象具有高度动态性，可在 <code>Runtime</code> 修改对象结构。<br><strong>在 JavaScript 中，几乎“所有事物”都是对象。</strong> </p>
+<ul>
+<li><p>布尔是对象（如果用 <em>new</em> 关键词定义）</p>
+</li>
+<li><p>数字是对象（如果用 <em>new</em> 关键词定义）</p>
+</li>
+<li><p>字符串是对象（如果用 <em>new</em> 关键词定义）</p>
+</li>
+<li><p>日期永远都是对象</p>
+</li>
+<li><p>算术永远都是对象</p>
+</li>
+<li><p>正则表达式永远都是对象</p>
+</li>
+<li><p>数组永远都是对象</p>
+</li>
+<li><p>函数永远都是对象</p>
+</li>
+<li><p>对象永远都是对象</p>
+</li>
+</ul>
+<p>JavaScript 原始值：<br>原始值指的是没有属性或方法的值。原始数据类型指的是拥有原始值的数据。<br>JavaScript 定义了 5 种原始数据类型：</p>
+<ul>
+<li><p>string</p>
+</li>
+<li><p>number</p>
+</li>
+<li><p>boolean</p>
+</li>
+<li><p>null</p>
+</li>
+<li><p>undefined</p>
+</li>
+</ul>
+<p>原始值是一成不变的（它们是硬编码的，因此不能改变）,假设 x = 3.14，您能够改变 x 的值。但是您无法改变 3.14 的值。<br>对象也是变量。但是对象能够包含很多值。</p>
+<h2 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h2><p>在传统的基于Class的语言如Java、C++中，继承的本质是扩展一个已有的Class，并生成新的Subclass。<br>由于这类语言严格区分类和实例，继承实际上是类型的扩展。但是，JavaScript由于采用原型继承，我们无法直接扩展一个Class，因为根本不存在Class这种类型。<br><strong>所有 JavaScript 对象都从原型继承属性和方法。无法为已有的对象构造器添加新属性。</strong><br>如需向构造器添加一个新属性，则必须把它添加到构造器函数。</p>
+<h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><p>所有 JavaScript 对象都从原型继承属性和方法。<br>日期对象继承自 Date.prototype。数组对象继承自 Array.prototype。Person 对象继承自 Person.prototype。<br>Object.prototype 位于原型继承链的顶端：<br>日期对象、数组对象和 Person 对象都继承自 Object.prototype。<br><strong>原型链：</strong> <br><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uiwy5y5j60id0763yt02.jpg"></p>
+<h4 id="向对象添加属性和方法"><a href="#向对象添加属性和方法" class="headerlink" title="向对象添加属性和方法"></a>向对象添加属性和方法</h4><p>JavaScript prototype 属性允许您为对象构造器添加新属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">first, last, age, eyecolor</span>) </span>&#123;    <span class="built_in">this</span>.firstName = first;    <span class="built_in">this</span>.lastName = last;    <span class="built_in">this</span>.age = age;    <span class="built_in">this</span>.eyeColor = eyecolor;&#125;Person.prototype.nationality = <span class="string">&quot;English&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>prototype 属性也允许您为对象构造器添加新方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">first, last, age, eyecolor</span>) </span>&#123;    <span class="built_in">this</span>.firstName = first;    <span class="built_in">this</span>.lastName = last;    <span class="built_in">this</span>.age = age;    <span class="built_in">this</span>.eyeColor = eyecolor;&#125;Person.prototype.name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;    <span class="keyword">return</span> <span class="built_in">this</span>.firstName + <span class="string">&quot; &quot;</span> + <span class="built_in">this</span>.lastName;&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承:"></a>继承:</h4><p>原对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;    <span class="built_in">this</span>.name = props.name || <span class="string">&#x27;Unnamed&#x27;</span>;&#125;Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;    alert(<span class="string">&#x27;Hello, &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;!&#x27;</span>);&#125;</span><br></pre></td></tr></table></figure>
+
+<p>基于<code>Student</code>扩展出<code>PrimaryStudent</code>，可以先定义出<code>PrimaryStudent</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;    <span class="comment">// 调用Student构造函数，绑定this变量:    Student.call(this, props);    this.grade = props.grade || 1;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是，调用了<code>Student</code>构造函数不等于继承了<code>Student</code>，<code>PrimaryStudent</code>创建的对象的原型是：</p>
+<blockquote>
+<p>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Object.prototype —-&gt; null</p>
+</blockquote>
+<p>必须想办法把原型链修改为：</p>
+<blockquote>
+<p>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Student.prototype —-&gt; Object.prototype —-&gt; null</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类构造函数:function Student(props) &#123;    this.name = props.name || &#x27;Unnamed&#x27;;&#125;//空函数Ffunction F()&#123;&#125;//子类构造函数:function PrimaryStudent(props)&#123;    Student.call(this,props);    this.grade=props.grade||1;&#125;//将把F的原型指向Student.prototype:F.prototype=Student.prototype;//把子类的原型指向一个新的F对象，F对象的原型正好指向Student.prototype:PrimaryStudent.prototype=new F();//将子类原型的构造函数重置为自己PrimaryStudent.prototype.constructor=PrimaryStudent;//在子类原型上定义新的方法PrimaryStudent.prototype.info=function()&#123;    return `$&#123;this.name&#125;:$&#123;this.grade&#125;`;&#125;//创建子类实例let s=new PrimaryStudent(&#123;name:&#x27;zs&#x27;,grade:0&#125;);console.log(s);console.log(s.info());</span></span><br></pre></td></tr></table></figure>
+
+
+<p>新的基于<code>PrimaryStudent</code>创建的对象不但能调用<code>PrimaryStudent.prototype</code>定义的方法，也可以调用<code>Student.prototype</code>定义的方法。</p>
+<p>新原型链：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uj1ls87j60rb07j74s02.jpg"><br>继承这个动作用函数封装起来，还可以隐藏<code>F</code>的定义，并简化代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherits</span>(<span class="params">Child, Parent</span>) </span>&#123;    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;    F.prototype = Parent.prototype;    Child.prototype = <span class="keyword">new</span> F();    Child.prototype.constructor = Child;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>复用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>)</span>&#123;    Student.call(<span class="built_in">this</span>,props);    <span class="built_in">this</span>.grade=props.grade||<span class="number">1</span>;&#125;<span class="comment">// 实现原型继承链:inherits(PrimaryStudent,Student);//绑定其他方法到PrimaryStudent原型:PrimaryStudent.prototype.info=function()&#123;    return `$&#123;this.name&#125;:$&#123;this.grade&#125;`;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="class继承"><a href="#class继承" class="headerlink" title="class继承:"></a>class继承:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;    <span class="function"><span class="title">constructor</span>(<span class="params">name</span>)</span>&#123;        <span class="built_in">this</span>.name=name;    &#125;&#125;<span class="class"><span class="keyword">class</span> <span class="title">PrimaryStudent</span> <span class="keyword">extends</span> <span class="title">Student</span> </span>&#123;    <span class="function"><span class="title">constructor</span>(<span class="params">name, grade</span>)</span> &#123;        <span class="built_in">super</span>(name); <span class="comment">// 记得用super调用父类的构造方法!        this.grade = grade;    &#125;    myGrade() &#123;        alert(&#x27;I am at grade &#x27; + this.grade);    &#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="V8如何实现闭包"><a href="#V8如何实现闭包" class="headerlink" title="V8如何实现闭包"></a>V8如何实现闭包</h1><h2 id="闭包概念"><a href="#闭包概念" class="headerlink" title="闭包概念:"></a>闭包概念:</h2><p>闭包是一个绑定了执行环境的函数，与普通函数并无太大区别，闭包不会造成内存泄漏，函数调用是创建闭包的唯一途径。</p>
+<h2 id="闭包造成内存泄漏的说法是怎么流传的："><a href="#闭包造成内存泄漏的说法是怎么流传的：" class="headerlink" title="闭包造成内存泄漏的说法是怎么流传的："></a>闭包造成内存泄漏的说法是怎么流传的：</h2><p><strong>内存泄漏定义：</strong> </p>
+<blockquote>
+<p>内存泄漏（Memory Leak）是指程序中已动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。<br>来源-百度百科</p>
+</blockquote>
+<p><strong>执行环境定义</strong> </p>
+<blockquote>
+<p>执行环境定义了变量或者函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据的时候在后台会使用它。</p>
+</blockquote>
+<blockquote>
+<p>全局执行环境是最外围的一个执行环境，web浏览器中全局执行环境被认为是window，因此所有的全局变量和函数都是作为window对象的属性和方法创建的。</p>
+</blockquote>
+<blockquote>
+<p>每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中，而在函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。ECMAscript程序中的执行流正式由这个方便的机制控制着。</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>当代码在一个环境中执行时，会创建变量对象的一个作用域链。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问</p>
+</blockquote>
+<blockquote>
+<p>—引用自互联网</p>
+</blockquote>
+<h2 id="为什么会有闭包内存泄漏的说法"><a href="#为什么会有闭包内存泄漏的说法" class="headerlink" title="为什么会有闭包内存泄漏的说法:"></a>为什么会有闭包内存泄漏的说法:</h2><blockquote>
+<p>闭包内存泄漏的说法原于IE浏览器的内存回收机制，因为在IE的低版本中，如果我们使用闭包，它没有办法去回收闭包里面所使用的变量，所以会造成内存泄漏和不必要的内存损耗，第二个原因是，在IE浏览器早期，由于他的BOM跟DOM对象是使用C++里的COM对象的方式来实现的，而COM对象的垃圾回收机制是采用的引用计数的机制，在基于引用计数的策略的垃圾回收机制当中，如果两个对象形成了循环引用的话，那这两个对象都没办法进行回收，但是循环引用所造成的内存泄漏是写代码所造成的，并不是闭包所造成的，这个问题是IE浏览器下的一个bug跟闭包是无关的。</p>
+</blockquote>
+<p><strong>闭包：</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//闭包空间&#125;)();</span></span><br></pre></td></tr></table></figure>
+
+<p>函数调用是形成闭包的唯一条件；</p>
+<h2 id="V8内存模型："><a href="#V8内存模型：" class="headerlink" title="V8内存模型："></a>V8内存模型：</h2><p>基于一段代码理解内存模型；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  	<span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;      	<span class="built_in">this</span>.name=name;	      <span class="built_in">this</span>.age=age;    &#125;;  <span class="keyword">let</span> p=<span class="keyword">new</span> Person(<span class="string">&quot;张三&quot;</span>,<span class="number">18</span>);&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>这段代码首先有一个匿名函数，并且会立即执行，函数执行会创建一块闭包空间，所以在程序开始时，我们就会获得一块这样的内存空间;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  &#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>在闭包空间内我们声明了一个函数(类)，Person，在闭包空间中的函数缓冲区中，会出现Person的声明；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;  <span class="built_in">this</span>.name=name;  <span class="built_in">this</span>.age=age;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着我们定义了一个变量p,会在栈中声明一个变量P；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p;</span><br></pre></td></tr></table></figure>
+
+<p>随后就到了执行这段代码的时候； <code>new Person(&quot;张三&quot;,18)</code> 这段代码会在堆中开辟一块空间，函数执行完成之后会将这块空间的地址返回；所以P就拿到了这块空间的地址。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Person(<span class="string">&quot;张三&quot;</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
+
+<p>最后我们整理一下这段代码的执行顺序；</p>
+<ul>
+<li>创建闭包空间</li>
+<li>声明函数 <code>Person</code> </li>
+<li>变量提升 <code>p</code> </li>
+<li>通过 <code>new</code> 关键字调用函数执行，并返回对象所在地址</li>
+<li>将地址赋值给 <code>P</code> </li>
+</ul>
+<p>内存图:<br><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uj6xrhaj60mb0jn3z102.jpg"></p>
+<h3 id="new-执行的函数和直接调用函数的区别："><a href="#new-执行的函数和直接调用函数的区别：" class="headerlink" title="new 执行的函数和直接调用函数的区别："></a><code>new</code> 执行的函数和直接调用函数的区别：</h3><p>在JS中，声明一个类和声明一个函数看起来都差不多，都是使用 <code>function</code> 关键字，所以我们可以把它们都理解为函数，那么类声明函数和普通函数有什么区别呢。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;<span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上两个函数在语法上并无区别，但是在语义上，一般我们会将第一个函数理解为类型声明，第二个为普通函数，类型声明的标识符一般为名词，函数名一般为动词，但在程序中，他们做的事都是一样的，这样只是为了方便人的理解，当一个函数是类声明时，我们的调用方式一般是使用 <code>new</code> ;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>new</code> 和直接调用有什么区别呢，其实区别就是关注点不同，普通函数调用关注的是函数的执行结果，也就是 <code>return</code> 的值，但是使用 <code>new</code> 关键字我们关注的是，这个函数执行时的那一块内存区域，当我们执行了以上代码，就会在堆中开辟一块区域，并且将那块区域的地址交给 <code>p</code> ,这样就能通过变量 <code>p</code> 去操作那块内存空间。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/footer-l.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/images/footer-r.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2021/10/04/hello-world/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>Hello W...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2021.<a href="/">Blogs</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uy4jl27j60el0elgm002.jpg" alt="Young"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Young</p>
+          <span class="tagline">不以物喜，不以己悲</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    
+    
+    
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.0/source/dist/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
