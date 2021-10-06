@@ -350,20 +350,20 @@
 <p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-31087949-id-5816994.html">http://blog.chinaunix.net/uid-31087949-id-5816994.html</a></p>
 <h2 id="Pull-amp-Push："><a href="#Pull-amp-Push：" class="headerlink" title="Pull&amp;Push："></a>Pull&amp;Push：</h2><h3 id="pull"><a href="#pull" class="headerlink" title="pull:"></a>pull:</h3><ul>
 <li><p>将远程指定分支<strong>拉取到</strong>本地指定分支上：</p>
-<ul>
-<li>```shell<br>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 将远程指定分支**拉取到**本地当前分支上：</span><br><span class="line"></span><br><span class="line">  * ```shell</span><br><span class="line">    git pull &lt;远程仓库名&gt; &lt;远程分支名称&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>将远程指定分支<strong>拉取到</strong>本地当前分支上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程仓库名&gt; &lt;远程分支名称&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>将与本地当前分支同名的远程分支<strong>拉取到</strong>本地当前分支上</p>
-<ul>
-<li>```shell<br>git pull &lt;远程仓库名&gt;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在克隆远程项目的时候，本地分支会自动与远程分支建立追踪关系，可以使用默认的origin来替代远程仓库名，所以，常用的命令就是 git pull origin &lt;远程仓库名&gt;，操作简单，安全可控。</span><br><span class="line"></span><br><span class="line">### push :</span><br><span class="line"></span><br><span class="line">* 将本地当前分支 推送到 远程指定分支上（注意：pull是远程在前本地在后，push相反）</span><br><span class="line"></span><br><span class="line">  * ```shell</span><br><span class="line">    git push &lt;远程仓库名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程仓库名&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
-</li>
+<p>在克隆远程项目的时候，本地分支会自动与远程分支建立追踪关系，可以使用默认的origin来替代远程仓库名，所以，常用的命令就是 git pull origin &lt;远程仓库名&gt;，操作简单，安全可控。</p>
+<h3 id="push"><a href="#push" class="headerlink" title="push :"></a>push :</h3><ul>
+<li><p>将本地当前分支 推送到 远程指定分支上（注意：pull是远程在前本地在后，push相反）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程仓库名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>将本地当前分支 推送到 远程指定分支上</p>
-<ul>
-<li>```shell<br>git push &lt;远程仓库名&gt; &lt;远程分支名&gt;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 将本地当前分支 推送到 与本地当前分支同名的远程分支上</span><br><span class="line"></span><br><span class="line">  * ```shell</span><br><span class="line">    git push &lt;远程仓库名&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程仓库名&gt; &lt;远程分支名&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>将本地当前分支 推送到 与本地当前分支同名的远程分支上</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程仓库名&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="Git提交规范："><a href="#Git提交规范：" class="headerlink" title="Git提交规范："></a>Git提交规范：</h2><ul>
 <li>feat：新功能</li>
@@ -445,8 +445,8 @@
   </div>
   <nav class="menu-container">
   <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
     
     
     
