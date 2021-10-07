@@ -116,8 +116,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPoint</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">  	<span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">      <span class="function"><span class="title">constructor</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">        	<span class="built_in">this</span>.x=x;</span><br><span class="line">	        <span class="built_in">this</span>.y=y;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Point(x,y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在函数中声明类的话，可能会创建多个隐藏类，导致对象没办法进行优化的操作，当这个代码变为热点代码时，就没办法通过编译器将这个代码编译生成为二进制代码，进而触发反优化操作，直接回退到解释器里面来执行。</p>
-<h1 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h1><p><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/21586721/1621785821715-06dced3a-ed1d-4564-8859-042fefc4133e.jpeg"># V8的拆箱和装箱机制</p>
-<h2 id="什么是类型系统："><a href="#什么是类型系统：" class="headerlink" title="什么是类型系统："></a>什么是类型系统：</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uiscbonj60pl0e6dgd02.jpg"></p>
+<h1 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h1><p><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/21586721/1621785821715-06dced3a-ed1d-4564-8859-042fefc4133e.jpeg"></p>
+<h1 id="V8的拆箱和装箱机制"><a href="#V8的拆箱和装箱机制" class="headerlink" title="V8的拆箱和装箱机制"></a>V8的拆箱和装箱机制</h1><h2 id="什么是类型系统："><a href="#什么是类型系统：" class="headerlink" title="什么是类型系统："></a>什么是类型系统：</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv5uiscbonj60pl0e6dgd02.jpg"></p>
 <blockquote>
 <p>对于机器语言而言，所有数据都是一堆二进制代码，cpu处理这些数据的过程中并没有类型的概念，cpu所做的仅仅是去移动数据，对他们进行一些移位的操作，相加，或者是相乘，在高级语言里面我们都会为操作这些数据赋予一些指定的类型，类型可以确定一个值，或者说一组具有特定意义的数据，所以类型是高级语言的概念。</p>
 </blockquote>
@@ -289,7 +289,7 @@
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3>No newer post</h3>
+						<h3>没有更新的文章</h3>
 					</div>
 				</div>
 			</div>
@@ -343,8 +343,8 @@
   </div>
   <nav class="menu-container">
   <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
     
     
     
